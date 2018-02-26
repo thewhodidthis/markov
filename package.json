@@ -1,0 +1,42 @@
+{
+  "name": "@thewhodidthis/markov",
+  "version": "0.0.0",
+  "description": "Helps make decisions",
+  "main": "index",
+  "module": "index.mjs",
+  "homepage": "https://github.com/thewhodidthis/markov#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thewhodidthis/markov.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thewhodidthis/markov/issues"
+  },
+  "scripts": {
+    "pretest": "eslint test.js",
+    "test": "node test",
+    "prestart": "eslint index.mjs",
+    "start": "rollup -f cjs index.mjs > index.js",
+    "preexample": "eslint example.js",
+    "example": "node example"
+  },
+  "eslintConfig": {
+    "extends": "@thewhodidthis"
+  },
+  "engines": {
+    "node": ">=6.11.0",
+    "npm": ">=3.10.10"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@thewhodidthis/eslint-config": "latest",
+    "eslint": "latest",
+    "rollup": "latest",
+    "tapeless": "latest"
+  },
+  "keywords": [
+    "markov"
+  ],
+  "author": "sChzs BkgNns <sotirios.bakagiannis@gmail.com> (https://www.thewhodidthis.com)",
+  "license": "Unlicense"
+}
