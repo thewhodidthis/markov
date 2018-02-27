@@ -1,17 +1,18 @@
-// Random from helper
-const random = (input = []) => input[Math.floor(Math.random() * input.length)]
-
+// # Markov chain calculator
 const markov = (input = []) => {
-  // Get array representation of input if need be
+  // Obtain array representation of input if need be
   const body = Array.isArray(input) ? input : String(input).split('')
 
   // Dedupe input for lookup keys
   const keys = [...new Set(body)]
 
-  // Cutoff
+  // Random from helper
+  const rand = (from = keys) => from[Math.floor(Math.random() * from.length)]
+
+  // Cutoff (second to last key), save for later
   const stop = keys.length - 1
 
-  // Collect suffixes for each key
+  // Gather potential values for each key
   const data = new Map(
     keys.map((k, i) => {
       const v = i >= stop ? keys : body.map((x, j) => (x === k ? body[j + 1] : 0)).filter(x => !!x)
@@ -20,15 +21,14 @@ const markov = (input = []) => {
     })
   )
 
-  // Choose a random key to start with, replaced on each iteration
-  let output = random(keys)
+  // Gets replaced on each iteration,
+  // fed keys on first call since `undefined`
+  let next
 
-  return (seed = output) => {
-    output = random(
-      data.get(seed)
-    )
+  return () => {
+    next = rand(data.get(next))
 
-    return output
+    return next
   }
 }
 
