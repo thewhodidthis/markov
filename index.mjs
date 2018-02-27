@@ -23,12 +23,12 @@ const markov = (input = []) => {
 
   // Gets replaced on each iteration,
   // fed keys on first call since `undefined`
-  let next
+  let result
 
   return () => {
-    next = rand(data.get(next))
+    result = rand(data.get(result))
 
-    return next
+    return result
   }
 }
 
