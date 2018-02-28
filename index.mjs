@@ -1,4 +1,4 @@
-// # Markov chain calculator
+// Helps produce markov chains
 const markov = (input = []) => {
   // Obtain array representation of input if need be
   const body = Array.isArray(input) ? input : String(input).split('')
