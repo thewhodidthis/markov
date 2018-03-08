@@ -2,12 +2,13 @@
 
 const markov = require('./')
 
-const divide = (input = [], n = 2) => input
+// Consider word couples (order 2)
+const divide = (input = [], n = 1) => input
   .reduce((a, b, i) => (
     !(i % n) ? [...a, input.slice(i, i + n).join(' ')] : a
   ), [])
 
-const source = 'mama said knock you out! my my my!'
+const source = 'The cow ran past the field. The pig walked through the yard. The sheep ran into the marsh.'
 const filter = markov(divide(source.split(' ')))
 
 const sample = (memo = [], n = 10) => {
