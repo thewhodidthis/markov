@@ -1,3 +1,6 @@
+// Random from helper
+const random = (input = []) => input[Math.floor(Math.random() * input.length)]
+
 // Helps produce markov chains
 const markov = (input = []) => {
   // Obtain array representation of input if need be
@@ -5,9 +8,6 @@ const markov = (input = []) => {
 
   // Dedupe input for lookup keys
   const keys = [...new Set(body)]
-
-  // Random from helper
-  const rand = (from = keys) => from[Math.floor(Math.random() * from.length)]
 
   // Cutoff (second to last key), save for later
   const stop = keys.length - 1
@@ -21,12 +21,11 @@ const markov = (input = []) => {
     })
   )
 
-  // Gets replaced on each iteration,
-  // fed keys on first call since `undefined`
-  let result
+  // Gets replaced on each iteration
+  let result = random(keys)
 
-  return () => {
-    result = rand(data.get(result))
+  return (at = result) => {
+    result = random(data.get(at))
 
     return result
   }
