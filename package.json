@@ -2,41 +2,41 @@
   "name": "@thewhodidthis/markov",
   "version": "0.0.0",
   "description": "Helps make decisions",
-  "main": "index",
-  "module": "index.mjs",
+  "keywords": [
+    "markov"
+  ],
   "homepage": "https://github.com/thewhodidthis/markov#readme",
+  "bugs": {
+    "url": "https://github.com/thewhodidthis/markov/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/thewhodidthis/markov.git"
   },
-  "bugs": {
-    "url": "https://github.com/thewhodidthis/markov/issues"
-  },
+  "license": "ISC",
+  "author": "Sotiri Bakagiannis <sotirios.bakagiannis@gmail.com> (http://thewhodidthis.com)",
+  "main": "index",
+  "module": "index.mjs",
   "scripts": {
-    "pretest": "eslint test.js",
-    "test": "node test",
-    "prestart": "eslint index.mjs",
-    "start": "rollup -f cjs index.mjs > index.js",
     "preexample": "eslint example.js",
-    "example": "node example"
+    "example": "node example",
+    "prestart": "eslint index.mjs",
+    "start": "rollup -f cjs -o index.js index.mjs",
+    "pretest": "eslint test.js",
+    "test": "node test"
   },
   "eslintConfig": {
     "extends": "@thewhodidthis"
   },
+  "dependencies": {},
+  "devDependencies": {
+    "@thewhodidthis/eslint-config": "^0.0.18",
+    "eslint": "^6.8.0",
+    "rollup": "^1.31.1",
+    "tapeless": "^0.0.10"
+  },
   "engines": {
     "node": ">=6.11.0",
     "npm": ">=3.10.10"
-  },
-  "dependencies": {},
-  "devDependencies": {
-    "@thewhodidthis/eslint-config": "latest",
-    "eslint": "latest",
-    "rollup": "latest",
-    "tapeless": "latest"
-  },
-  "keywords": [
-    "markov"
-  ],
-  "author": "sChzs BkgNns <sotirios.bakagiannis@gmail.com> (https://www.thewhodidthis.com)",
-  "license": "Unlicense"
+  }
 }
