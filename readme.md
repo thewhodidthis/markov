@@ -12,15 +12,15 @@ npm i thewhodidthis/markov
 const markov = require('@thewhodidthis/markov')
 
 const filter = ((source) => {
-    const step = markov(source)
+  const step = markov(source)
 
-    const tick = function* () {
-        while (1) {
-            yield step()
-        }
+  const tick = function *() {
+    while (1) {
+      yield step()
     }
+  }
 
-    return tick()
+  return tick()
 })('mama mia, mama mia, mama mia'.split(' '))
 
 filter.next()
@@ -31,10 +31,10 @@ filter.next()
 import markov from '@thewhodidthis/markov'
 
 const bender = async (data = '') => {
-    const step = markov(data)
-    const next = await step()
+  const step = markov(data)
+  const next = await step()
 
-    return next
+  return next
 }
 
 bender('mama mia, mama mia, mama mia'.split(' ')).then(console.log)
