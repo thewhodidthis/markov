@@ -1,14 +1,20 @@
-> Bare bones Markov calculator
+## about
 
-### Setup
+A bare bones Markov calculator.
+
+## setup
+
+Fetch latest from GitHub:
+
 ```sh
-# Fetch latest from github
-npm i thewhodidthis/markov
+npm install thewhodidthis/markov
 ```
 
-### Usage
+## usage
+
+Be iterating:
+
 ```js
-// Be iterating
 const markov = require('@thewhodidthis/markov')
 
 const filter = ((source) => {
@@ -26,8 +32,9 @@ const filter = ((source) => {
 filter.next()
 ```
 
+Be async:
+
 ```js
-// Be async
 import markov from '@thewhodidthis/markov'
 
 const bender = async (data = '') => {
