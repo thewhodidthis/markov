@@ -1,15 +1,14 @@
-'use strict'
-
-const markov = require('./')
+import markov from "./main.js"
 
 // Consider word couples (order 2)
-const divide = (input = [], n = 1) => input
-  .reduce((a, b, i) => (
-    !(i % n) ? [...a, input.slice(i, i + n).join(' ')] : a
-  ), [])
+const divide = (input = [], n = 1) =>
+  input
+    .reduce((a, _, i) => (
+      !(i % n) ? [...a, input.slice(i, i + n).join(" ")] : a
+    ), [])
 
-const source = 'The cow ran past the field. The pig walked through the yard. The sheep ran into the marsh.'
-const filter = markov(divide(source.split(' ')))
+const source = "The cow ran past the field. The pig walked through the yard. The sheep ran into the marsh."
+const filter = markov(divide(source.split(" ")))
 
 const sample = (memo = [], n = 10) => {
   const next = filter()
@@ -22,4 +21,4 @@ const sample = (memo = [], n = 10) => {
   return sample(memo)
 }
 
-console.log(sample().join(' '))
+console.log(sample().join(" "))
