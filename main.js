@@ -21,7 +21,7 @@ export default function markov(input = []) {
     }),
   )
 
-  // Gets replaced on each iteration.
+  // Gets replaced on call.
   let result = random(keys)
 
   return (at = result) => {
