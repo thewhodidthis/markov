@@ -1,6 +1,6 @@
 ## about
 
-A bare bones Markov calculator.
+A bare bones Markov calculator that operates on arrays or strings.
 
 ## setup
 
