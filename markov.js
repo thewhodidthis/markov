@@ -12,7 +12,7 @@ var markov = (function() {
     // Dedupe input for lookup keys.
     const keys = [...new Set(body)]
 
-    // Cutoff (second to last key), save for later.
+    // Cutoff, save for later.
     const stop = keys.length - 1
 
     // Gather potential values for each key.
@@ -24,7 +24,7 @@ var markov = (function() {
       }),
     )
 
-    // Gets replaced on each iteration.
+    // Gets replaced on call.
     let result = random(keys)
 
     return (at = result) => {
